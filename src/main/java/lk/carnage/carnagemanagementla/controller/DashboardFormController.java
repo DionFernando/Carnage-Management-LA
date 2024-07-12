@@ -72,23 +72,23 @@ public class DashboardFormController implements Initializable{
     }
 
     private void automaticLogout() {
-        idleTimer = new PauseTransition(Duration.seconds(15));
-        idleTimer.setOnFinished(e -> {
-            try {
-                // Navigate to the login page when the timer finishes
-                AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/welcome_form.fxml"));
-                Scene scene = new Scene(rootNode);
-                Stage stage = (Stage) this.rootNode.getScene().getWindow();
-                stage.setScene(scene);
-                stage.centerOnScreen();
-                stage.setTitle("Login Form");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
-
-        // Start the idle timer
-        idleTimer.playFromStart();
+//        idleTimer = new PauseTransition(Duration.seconds(15));
+//        idleTimer.setOnFinished(e -> {
+//            try {
+//                // Navigate to the login page when the timer finishes
+//                AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/welcome_form.fxml"));
+//                Scene scene = new Scene(rootNode);
+//                Stage stage = (Stage) this.rootNode.getScene().getWindow();
+//                stage.setScene(scene);
+//                stage.centerOnScreen();
+//                stage.setTitle("Login Form");
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//            }
+//        });
+//
+//        // Start the idle timer
+//        idleTimer.playFromStart();
     }
 
     private void orderHoverEffect(JFXButton button) {

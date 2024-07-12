@@ -4,9 +4,11 @@ import lk.carnage.carnagemanagementla.dao.SQLUtil;
 import lk.carnage.carnagemanagementla.dao.custom.CustomerDAO;
 import lk.carnage.carnagemanagementla.entity.Customer;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
@@ -37,11 +39,27 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public String generateID() throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("SELECT cus_id FROM Customer ORDER BY cus_id DESC LIMIT 1;");
+        ResultSet rst = SQLUtil.execute("SELECT cus_id FROM Customer ORDER BY cus_id DESC LIMIT 1;");
+        if (rst.next()) {
+            return rst.getString("cus_id");
+        } else {
+            return null;
+        }
     }
 
     @Override
     public Customer searchByTel(String id) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("SELECT * FROM Customer WHERE tel = ?");
+    }
+
+    @Override
+    public List<String> getCustomerAddress() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT address FROM Customer");
+        List<String> customerList = new ArrayList<>();
+        while (resultSet.next()) {
+            String address = resultSet.getString(1);
+            customerList.add(address);
+        }
+        return customerList;
     }
 }

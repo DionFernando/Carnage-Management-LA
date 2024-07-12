@@ -140,6 +140,8 @@ public class MensWearFormController implements Initializable {
         try {
             String currentID = mensBO.generateMenID();
 
+            System.out.println(currentID);
+
             String newID = generateNextID(currentID);
             txtID.setText(newID);
 
@@ -286,7 +288,7 @@ public class MensWearFormController implements Initializable {
     }
 
     public void homeBtnOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/dashboard_form.fxml"));
 
         Scene scene = new Scene(rootNode);
 

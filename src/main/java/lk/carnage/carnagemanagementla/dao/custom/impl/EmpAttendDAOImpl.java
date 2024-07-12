@@ -38,7 +38,12 @@ public class EmpAttendDAOImpl implements EmpAttedDAO {
 
     @Override
     public Object getCurrentEmpAttendID() throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("SELECT empAttend_id FROM Emp_Attendance ORDER BY empAttend_id DESC LIMIT 1");
+        ResultSet rst = SQLUtil.execute("SELECT empAttend_id FROM Emp_Attendance ORDER BY empAttend_id DESC LIMIT 1");
+        if (rst.next()) {
+            return rst.getString("empAttend_id");
+        } else {
+            return null;
+        }
     }
 
     @Override

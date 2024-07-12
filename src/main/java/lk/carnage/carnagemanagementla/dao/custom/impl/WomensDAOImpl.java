@@ -30,7 +30,7 @@ public class WomensDAOImpl implements WomensDAO {
 
     @Override
     public boolean update(Womens womens) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE Product SET category = ?, price = ?, qty = ?, season = ? WHERE prod_id = ?", womens.getId(), womens.getCategory(), womens.getPrice(), womens.getQty(),womens.getSeason());
+        return SQLUtil.execute("UPDATE Product SET category = ?, price = ?, qty = ?, season = ? WHERE prod_id = ?",  womens.getCategory(), womens.getPrice(), womens.getQty(),womens.getSeason(), womens.getId());
     }
 
     @Override

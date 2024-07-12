@@ -14,7 +14,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         ArrayList<Employee> allEmployees = new ArrayList<>();
         ResultSet rst = SQLUtil.execute("SELECT * FROM Employee");
         while (rst.next()) {
-            Employee employee = new Employee(rst.getString("emp_id"), rst.getString("name"),rst.getInt("tel"));
+            Employee employee = new Employee(rst.getString("emp_id"), rst.getString("name"),rst.getInt("Telephone"));
             allEmployees.add(employee);
         }
         return allEmployees;
@@ -37,6 +37,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public Object generateID() throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("SELECT emp_id FROM Employee ORDER BY emp_id DESC LIMIT 1");
+        ResultSet rst = SQLUtil.execute("SELECT emp_id FROM Employee ORDER BY emp_id DESC LIMIT 1");
+        if (rst.next()) {
+            return rst.getString("emp_id");
+        } else {
+            return null;
+        }
     }
 }

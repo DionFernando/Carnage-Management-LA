@@ -28,7 +28,7 @@ public class MensDAOImpl implements MensDAO {
 
     @Override
     public boolean update(Mens mens) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("UPDATE Product SET category = ?, price = ?, qty = ?, season = ? WHERE prod_id = ?", mens.getId(), mens.getCategory(), mens.getPrice(), mens.getQty(),mens.getSeason());
+        return SQLUtil.execute("UPDATE Product SET category = ?, price = ?, qty = ?, season = ? WHERE prod_id = ?", mens.getCategory(), mens.getPrice(), mens.getQty(),mens.getSeason(), mens.getId());
     }
 
     @Override
@@ -37,8 +37,14 @@ public class MensDAOImpl implements MensDAO {
     }
     @Override
     public String generateID() throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("SELECT prod_id FROM Product ORDER BY prod_id DESC LIMIT 1;");
+        ResultSet rst = SQLUtil.execute("SELECT prod_id \n" +
+                "FROM Product \n" +
+                "WHERE prod_id LIKE 'M%' \n" +
+                "GROUP BY prod_id \n" +
+                "ORDER BY prod_id DESC \n" +
+                "LIMIT 1;\n");
         if (rst.next()) {
+            System.out.println(rst.getString("prod_id"));
             return rst.getString("prod_id");
         } else {
             return null;

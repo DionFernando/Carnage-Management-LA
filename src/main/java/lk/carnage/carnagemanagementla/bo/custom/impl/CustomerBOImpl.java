@@ -9,6 +9,7 @@ import lk.carnage.carnagemanagementla.entity.Customer;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerBOImpl implements CustomerBO {
     CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.CUSTOMER);
@@ -41,6 +42,7 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
         return customerDAO.delete(id);
+
     }
     @Override
     public String generateCustomerID() throws SQLException, ClassNotFoundException {
@@ -49,5 +51,10 @@ public class CustomerBOImpl implements CustomerBO {
 
     public Customer searchByTel(String id) throws SQLException, ClassNotFoundException {
         return customerDAO.searchByTel(id);
+    }
+
+    @Override
+    public List<String> getCustomerAddress() throws SQLException, ClassNotFoundException {
+        return customerDAO.getCustomerAddress();
     }
 }

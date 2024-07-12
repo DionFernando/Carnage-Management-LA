@@ -244,8 +244,8 @@ public class EmployeeAttendanceFormController implements Initializable {
     }
 
     public void cmbEmpOnAction(ActionEvent actionEvent) throws SQLException {
-        setName();
-        setDaysCount();
+        /*setName();
+        setDaysCount();*/
 
     }
 
@@ -276,7 +276,7 @@ public class EmployeeAttendanceFormController implements Initializable {
     }
 
     private void loadALlEmployeeAttendances(String empId){
-        ObservableList<EmpAttendTm> obList = FXCollections.observableArrayList();
+        /*ObservableList<EmpAttendTm> obList = FXCollections.observableArrayList();
 
         try{
             ArrayList<EmpAttendDTO> employeeList = empAttendBO.getAllEmpAttend(empId);
@@ -290,11 +290,11 @@ public class EmployeeAttendanceFormController implements Initializable {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     public void filterEmpIds(KeyEvent keyEvent) {
-        ObservableList<String> filteredList = FXCollections.observableArrayList();
+       /* ObservableList<String> filteredList = FXCollections.observableArrayList();
         String enteredText = empIdcmb.getEditor().getText();
 
         try {
@@ -310,6 +310,6 @@ public class EmployeeAttendanceFormController implements Initializable {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 }

@@ -10,7 +10,8 @@ module lk.carnage.carnagemanagementla {
 
     opens lk.carnage.carnagemanagementla to javafx.fxml;
     opens lk.carnage.carnagemanagementla.controller to javafx.fxml;
-    opens lk.carnage.carnagemanagementla.view.tdm to java.base;
+    //opens lk.carnage.carnagemanagementla.view.tdm to java.base;
+    opens lk.carnage.carnagemanagementla.view.tdm to javafx.base;
 
     exports lk.carnage.carnagemanagementla;
     exports lk.carnage.carnagemanagementla.controller;

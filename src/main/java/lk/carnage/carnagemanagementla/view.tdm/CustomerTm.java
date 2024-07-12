@@ -1,6 +1,6 @@
 package lk.carnage.carnagemanagementla.view.tdm;
 
-public class CustomerTm {
+public class  CustomerTm {
     private String name;
     private int tel;
     private String address;

@@ -103,14 +103,14 @@ public class WomensWearFormController implements Initializable {
         });
     }
     private void navigateToMensWearForm() throws IOException {
-       /* AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/mens_wear_form.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/mens_wear_form.fxml"));
 
         Scene scene = new Scene(rootNode);
 
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Mens Wear Form");*/
+        stage.setTitle("Mens Wear Form");
     }
 
     private void generateID() {
@@ -261,12 +261,12 @@ public class WomensWearFormController implements Initializable {
         addBtn.setOnMouseEntered(event -> addBtn.setStyle("-fx-background-color: #1d991f; -fx-background-radius: 10;"));
         addBtn.setOnMouseExited(event -> addBtn.setStyle("-fx-background-color: black; -fx-background-radius: 10;"));
     }
-    public void clearOnAction(ActionEvent actionEvent) {
+    public void clearOnAction(ActionEvent actionEvent){
         clearText();
         txtId.setDisable(false);
         generateID();
     }
-    public void homeBtnOnAction(ActionEvent actionEvent) throws IOException {
+    public void homeBtnOnAction(ActionEvent actionEvent) throws IOException{
         AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/dashboard_form.fxml"));
 
         Scene scene = new Scene(rootNode);
@@ -276,7 +276,7 @@ public class WomensWearFormController implements Initializable {
         stage.centerOnScreen();
         stage.setTitle("DashBoard Form");
     }
-    public void addItemOnAction(ActionEvent actionEvent) {
+    public void addItemOnAction(ActionEvent actionEvent){
         String id = txtId.getText();
         String category = txtCategory.getText();
         String price = txtPrice.getText();
@@ -354,7 +354,7 @@ public class WomensWearFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-    public void updateBtnOnAction(ActionEvent actionEvent) {
+    public void updateBtnOnAction(ActionEvent actionEvent){
         String id = txtId.getText();
         String category = txtCategory.getText();
         String price = txtPrice.getText();
