@@ -49,7 +49,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public Customer searchByTel(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.execute("SELECT * FROM Customer WHERE tel = ?");
+        ResultSet resultSet = SQLUtil.execute("SELECT * FROM Customer WHERE tel = ?", id);
+        if (resultSet.next()) {
+            return new Customer(resultSet.getString("cus_id"), resultSet.getString("name"), resultSet.getInt("tel"), resultSet.getString("address"));
+        }
+        return null;
     }
 
     @Override
@@ -62,4 +66,15 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
         return customerList;
     }
+
+    @Override
+    public List<String> getTel() throws SQLException, ClassNotFoundException {
+        ResultSet rst = SQLUtil.execute("SELECT tel FROM Customer");
+        List<String> telList = new ArrayList<>();
+        while (rst.next()) {
+            telList.add(rst.getString(1));
+        }
+        return telList;
+    }
+
 }

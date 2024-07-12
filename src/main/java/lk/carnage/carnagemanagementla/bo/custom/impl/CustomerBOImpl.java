@@ -57,4 +57,9 @@ public class CustomerBOImpl implements CustomerBO {
     public List<String> getCustomerAddress() throws SQLException, ClassNotFoundException {
         return customerDAO.getCustomerAddress();
     }
+
+    @Override
+    public List<String> getTel() throws SQLException, ClassNotFoundException {
+        return customerDAO.getTel();
+    }
 }

@@ -23,13 +23,19 @@ public class BOFactory{
                 return new EmployeeBOImpl();
             case EMPLOYEEATTENDANCE:
                 return new EmpAttendBOImpl();
+            case ORDER:
+                return new OrderBOImpl();
+            case PLACEORDER:
+                return new PlaceOrderBOImpl();
+            case ORDERDETAIL:
+                return new OrderDetailBOImpl();
             default :
                 return null;
         }
     }
 
     public enum BOTypes{
-        CUSTOMER, WOMENS, MENS, EMPLOYEE, EMPLOYEEATTENDANCE
+        CUSTOMER, WOMENS, MENS, EMPLOYEE, EMPLOYEEATTENDANCE, ORDER, ORDERDETAIL, PLACEORDER
     }
 }
 

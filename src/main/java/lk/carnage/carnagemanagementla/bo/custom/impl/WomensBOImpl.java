@@ -7,10 +7,12 @@ import lk.carnage.carnagemanagementla.dao.custom.impl.WomensDAOImpl;
 import lk.carnage.carnagemanagementla.dto.CustomerDTO;
 import lk.carnage.carnagemanagementla.dto.WomensDTO;
 import lk.carnage.carnagemanagementla.entity.Customer;
+import lk.carnage.carnagemanagementla.entity.OrderDetail;
 import lk.carnage.carnagemanagementla.entity.Womens;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WomensBOImpl implements WomensBO {
 
@@ -49,5 +51,25 @@ public class WomensBOImpl implements WomensBO {
     @Override
     public String generateWomensID() throws SQLException, ClassNotFoundException {
         return womensDAO.generateID();
+    }
+
+    @Override
+    public List<String> getCodes() throws SQLException, ClassNotFoundException {
+        return womensDAO.getCodes();
+    }
+
+    @Override
+    public String qtyCount() throws SQLException, ClassNotFoundException {
+        return womensDAO.qtyCount();
+    }
+
+    @Override
+    public Womens searchById(String code) throws SQLException, ClassNotFoundException {
+        return womensDAO.searchById(code);
+    }
+
+    @Override
+    public boolean update(List<OrderDetail> odList) throws SQLException, ClassNotFoundException {
+        return womensDAO.update(odList);
     }
 }

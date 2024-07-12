@@ -8,6 +8,7 @@ import lk.carnage.carnagemanagementla.entity.Womens;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MensDAOImpl implements MensDAO {
     @Override
@@ -49,5 +50,15 @@ public class MensDAOImpl implements MensDAO {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public List<String> getCodes() throws SQLException, ClassNotFoundException {
+        ResultSet rst = SQLUtil.execute("SELECT prod_id FROM Product");
+        List<String> codeList = new ArrayList<>();
+        while (rst.next()) {
+            codeList.add(rst.getString(1));
+        }
+        return codeList;
     }
 }

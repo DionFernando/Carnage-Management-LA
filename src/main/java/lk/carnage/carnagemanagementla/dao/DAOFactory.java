@@ -25,13 +25,18 @@ public class DAOFactory {
                 return new EmployeeDAOImpl();
             case EMPLOYEEATTENDANCE:
                 return new EmpAttendDAOImpl();
-
+            case ORDER:
+                return new OrderDAOImpl();
+            case PLACEORDER:
+                return new PlaceOrderDAOImpl();
+            case ORDERDETAIL:
+                return new OrderDetialDAOImpl();
             default :
                 return null;
         }
     }
 
     public enum DAOTypes{
-        CUSTOMER, WOMENS, MENS, EMPLOYEE, EMPLOYEEATTENDANCE
+        CUSTOMER, WOMENS, MENS, EMPLOYEE, EMPLOYEEATTENDANCE, ORDER, ORDERDETAIL, PLACEORDER
     }
 }

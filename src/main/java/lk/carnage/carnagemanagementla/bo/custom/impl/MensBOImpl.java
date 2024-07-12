@@ -10,6 +10,7 @@ import lk.carnage.carnagemanagementla.entity.Womens;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MensBOImpl implements MensBO {
     MensDAO mensDAO = (MensDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.MENS);
@@ -48,5 +49,10 @@ public class MensBOImpl implements MensBO {
     @Override
     public String generateMenID() throws SQLException, ClassNotFoundException {
         return mensDAO.generateID();
+    }
+
+    @Override
+    public List<String> getCodes() throws SQLException, ClassNotFoundException {
+        return mensDAO.getCodes();
     }
 }
