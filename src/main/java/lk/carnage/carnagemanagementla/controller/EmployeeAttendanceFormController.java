@@ -110,7 +110,7 @@ public class EmployeeAttendanceFormController implements Initializable {
         return "S001";
     }
 
-    private void getEmployeeID() {
+    /*private void getEmployeeID() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
             List<String> telList = (List<String>) empAttendBO.getCurrentEmpAttendID();
@@ -125,7 +125,38 @@ public class EmployeeAttendanceFormController implements Initializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
+
+   /* private void getEmployeeID() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<String> telList = (List<String>) empAttendBO.getCurrentEmpAttendID();
+            for (String s : telList) {
+                obList.add(s);
+            }
+            empIdcmb.setItems(obList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+   private void getEmployeeID() {
+       ObservableList<String> obList = FXCollections.observableArrayList();
+       try {
+           Object result = empAttendBO.getCurrentEmpAttendID();
+           System.out.println("Result: " + result); // Debug print
+           if (result instanceof List) {
+               List<String> telList = (List<String>) result;
+               for (String s : telList) {
+                   obList.add(s);
+               }
+               empIdcmb.setItems(obList);
+           } else {
+               System.out.println("Result is not a List<String>"); // Debug print
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+   }
 
     private void addAnimations() {
         Pulse pulse = new Pulse(img);

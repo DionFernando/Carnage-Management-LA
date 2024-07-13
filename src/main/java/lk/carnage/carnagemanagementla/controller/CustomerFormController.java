@@ -109,6 +109,7 @@ public class CustomerFormController implements Initializable {
         }
     }
     private String generateNextID(String currentID) {
+        System.out.println(currentID);
         if (currentID != null) {
             String[] split = currentID.split("C");
             int idNum = Integer.parseInt(split[1]);
@@ -338,7 +339,7 @@ public class CustomerFormController implements Initializable {
         try{
             ArrayList<CustomerDTO> allCustomers = customerBO.getAllCustomer();
             for(CustomerDTO c : allCustomers){
-                tblCustomer.getItems().add(new CustomerTm(c.getId(), c.getTel(), c.getAddress()));
+                tblCustomer.getItems().add(new CustomerTm(c.getName(), c.getTel(), c.getAddress()));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);
